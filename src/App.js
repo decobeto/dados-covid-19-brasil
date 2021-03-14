@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import styled from 'styled-components'
+import './styles/global.css'
+import axios from 'axios'
+
+const api = axios.create({
+  baseURL: "https://servicodados.ibge.gov.br",
+});
+
+api.get('/api/v3/agregados/1613/periodos/2019/variaveis/2313?localidades=N3[42]&classificacao=82[all]').then( response => console.log(response.data))
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <h1>hello </h1>
   );
 }
 
