@@ -17,7 +17,7 @@ function App() {
   const [selectedState, setSelectedState] = useState('')
   const [isSending, setIsSending] = useState(false)
   
-  const sendRequest = useCallback(async (selectedPeriod, selectedState) => {
+  const sendRequest = useCallback(async ({selectedPeriod, selectedState}) => {
     if (isSending) return
     setIsSending(true)
     const request = await api.get(`/api/v3/agregados/1613/periodos/${selectedPeriod.value}/variaveis/2313%7C1002313%7C216%7C1000216%7C214%7C112%7C215%7C1000215?localidades=N3[${selectedState.value}]&classificacao=82[all]`)
@@ -36,7 +36,7 @@ function App() {
         <div>
           <Select options={period} value={selectedPeriod} onChange={setSelectedPeriod} />
           <Select options={state} value={selectedState} onChange={setSelectedState} />
-          <input value='Aperta eu' type={"button"} disabled={isSending} onClick={sendRequest} />
+          <input value='Aperta eu' type={"button"} disabled={isSending} onClick={() => sendRequest({selectedPeriod, selectedState})} />
         </div>
       </Section>
     </>
