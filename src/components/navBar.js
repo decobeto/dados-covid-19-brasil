@@ -32,7 +32,7 @@ export default function Navbar(){
   return(
     <Nav>
       <Container>
-        <SiteName>🌾Produção Agrícola Municipal</SiteName>
+        <SiteName>😷 Dados sobre COVID-19</SiteName>
       </Container>
     </Nav>
   )
