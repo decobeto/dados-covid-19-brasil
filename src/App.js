@@ -9,8 +9,11 @@ import BrazilStatus from './components/brazilStatus';
 import Cards from './components/cards';
 
 const Section = styled.section`
-  height: 100vh;
   background-color: #F2F3F5;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  overflow: auto;
 `
 
 const Container = styled.div`
