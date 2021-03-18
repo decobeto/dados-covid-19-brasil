@@ -11,7 +11,7 @@ export default function ChartsAndData(info){
 
   return(
     <Container>
-      {/* {info.data.map(ruralInfo => <Cards info={} key={ruralInfo.id} />)} */}
+      {info.data.map(stateInfo => <Cards stateInfo={stateInfo} key={stateInfo.id} />)}
       
     </Container>
   )

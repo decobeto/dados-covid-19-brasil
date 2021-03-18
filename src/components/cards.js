@@ -1,53 +1,65 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+
 const Container = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: white;
-  height: 700px;
-  width: 700px;
+  height: 500px;
+  width: 800px;
   border-radius: 8px;
   -webkit-box-shadow: 0px 25px 45px -20px rgba(0,0,0,0.68);
   -moz-box-shadow: 0px 25px 45px -20px rgba(0,0,0,0.68);
   box-shadow: 0px 25px 45px -20px rgba(0,0,0,0.68);
 `
 
+const Header = styled.div`
+  padding-top: 20px;
+  padding-left: 20px;
+`
+
 const Title = styled.h1`
   font-family: 'Roboto';
-  font-weigth: 700;
+  font-weight: 700;
   font-size: 2rem;
-  padding-top: 10px;
 `
 
 const SubTitle = styled.h1`
   font-family: 'Roboto';
-  font-weigth: 700;
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 0.75rem;
   padding-top: 3px;
 `
 
-const Line = styled.hr`
-  width: 80%;
-  margin-top: 10px;
+const Info = styled.div`
+  padding-top: 120px;
+  padding-left: 20px;
 `
 
-const Info = styled.div``
+const Numbers = styled.p`
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 1.75rem;
+  padding-top: 3px;
+`
 
-export default function Cards(){
+export default function Cards(data){
+
+  console.log(data.statesData)
 
   return(
     <Container>
-        <>
-          <Title>{}</Title>  
-          <Line />
-          <SubTitle>{}</SubTitle>
-          <Info>
-            {}
-          </Info>
-        </>
+      <Header>
+        <Title>{data.statesData.state}</Title>  
+        <SubTitle>Ultima atualização: {new Intl.DateTimeFormat('pt-br').format(Date.parse(data.statesData.datetime))}</SubTitle>
+      </Header>
+      <Info>
+        <Numbers>Casos Confirmados: {data.statesData.cases}</Numbers>
+        <Numbers>Casos Suspeitos: {data.statesData.suspects}</Numbers>
+        <Numbers>Negativos: {data.statesData.refuses}</Numbers>
+        <Numbers>Óbitos: {data.statesData.deaths}</Numbers>
+      </Info>
     </Container>
   )
 }

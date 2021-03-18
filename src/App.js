@@ -5,8 +5,8 @@ import Navbar from './components/navBar';
 import api from './services/api';
 import './styles/global.css'
 import { state } from './services/selectOptions';
-import ChartsAndData from './components/chartsAndData';
 import BrazilStatus from './components/brazilStatus';
+import Cards from './components/cards';
 
 const Section = styled.section`
   height: 100vh;
@@ -53,8 +53,6 @@ function App() {
     setIsSending(false)
   }, [isSending, selectedState])
 
-  console.log(data)
-
   return (
     <>
       <Section>
@@ -64,10 +62,9 @@ function App() {
           <Selection options={state} value={selectedState} onChange={setSelectedState} placeholder={"Estado"} />
           <Button value='Buscar' type={"button"} disabled={isSending} onClick={sendRequest} />
         </Container>
-        
         {data === undefined ? "" : 
           (<Container>
-            <ChartsAndData data={data} />
+            <Cards statesData={data} />
           </Container>)
         }
       </Section>

@@ -50,27 +50,24 @@ export default function BrazilStatus(){
     setInformation(request.data)
   }, [])
 
-  console.log("*********8888")
-  console.log(information)
-
   return(
     <Container>
       {information === undefined ? (<Loading>Carrengando dados...</Loading>) : (
       <>
         <Card>
-          <Title style={{color: '#636e72'}}>Casos Confirmados</Title>
+          <Title style={{color: '#636e72'}}>🇧🇷 Casos Confirmados</Title>
           <Numbers style={{color: '#636e72'}}>{information.data.confirmed}</Numbers>
         </Card>
         <Card style={{backgroundColor: '#55efc4'}}>
-          <Title style={{color: '#218c74'}}>Casos Recuperados</Title>
+          <Title style={{color: '#218c74'}}>🇧🇷 Casos Recuperados</Title>
           <Numbers style={{color: '#218c74'}}>{information.data.recovered}</Numbers>
         </Card>
         <Card style={{backgroundColor: '#fdcb6e'}}>
-          <Title style={{color: '#cc8e35'}}>Casos Ativos</Title>
+          <Title style={{color: '#cc8e35'}}>🇧🇷 Casos Ativos</Title>
           <Numbers style={{color: '#cc8e35'}}>{information.data.cases}</Numbers>
         </Card>
         <Card style={{backgroundColor: '#636e72'}}>
-          <Title style={{color: '#2d3436'}}>Óbitos</Title>
+          <Title style={{color: '#2d3436'}}>🇧🇷 Óbitos</Title>
           <Numbers style={{color: '#2d3436'}}>{information.data.deaths}</Numbers>
         </Card>
       </>
