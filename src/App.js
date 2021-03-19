@@ -7,6 +7,7 @@ import './styles/global.css'
 import { state } from './services/selectOptions';
 import BrazilStatus from './components/brazilStatus';
 import Cards from './components/cards';
+import AllStates from './components/allStates';
 
 const Section = styled.section`
   background-color: #F2F3F5;
@@ -52,9 +53,16 @@ function App() {
     if (isSending) return
     setIsSending(true)
     const request = await api.get(`/v1/brazil/uf/${selectedState.value}`)
-    setData(request.data)
+    if (request.data.error === "state not found"){
+      return undefined
+    } else {
+      setData(request.data)
+    }
     setIsSending(false)
   }, [isSending, selectedState])
+
+
+  console.log(selectedState)
 
   return (
     <>
@@ -66,10 +74,17 @@ function App() {
           <Button value='Buscar' type={"button"} disabled={isSending} onClick={sendRequest} />
         </Container>
         {data === undefined ? "" : 
-          (<Container>
+          selectedState.value === 'todos' ? (
+            <Container>
+              <AllStates />
+            </Container>
+          ) : 
+          (<Container> 
             <Cards statesData={data} />
           </Container>)
+          
         }
+        
       </Section>
     </>
   );
