@@ -29,7 +29,7 @@ const Selection = styled(Select)`
   width: 20%;
   font-family: 'Roboto';
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 5px;
 `
 
 const Button = styled.input`
@@ -39,15 +39,20 @@ const Button = styled.input`
   font-family: 'Roboto';
   font-weight: 700;
   font-size: 1rem;
-  width: 85px;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
   height: 40px;
   border-radius: 5px;
+  margin-left: 5px;
 `
+
 
 function App() {
   const [data, setData] = useState()
   const [selectedState, setSelectedState] = useState('')
   const [isSending, setIsSending] = useState(false)
+  const [getAll, setGetAll] = useState()
   
   const sendRequest = useCallback(async () => {
     if (isSending) return
@@ -61,8 +66,14 @@ function App() {
     setIsSending(false)
   }, [isSending, selectedState])
 
+  const clearScreen = useCallback(async () => {
+    setData(undefined)
+    setGetAll(undefined)
+  })
 
-  console.log(selectedState)
+  const getAllStates = useCallback(async () => {
+    setGetAll(true)
+  })
 
   return (
     <>
@@ -72,19 +83,19 @@ function App() {
         <Container>
           <Selection options={state} value={selectedState} onChange={setSelectedState} placeholder={"Estado"} />
           <Button value='Buscar' type={"button"} disabled={isSending} onClick={sendRequest} />
+          <Button value='Buscar todos' type={"button"} onClick={getAllStates} style={{backgroundColor: '#00b894' }}  />
+          <Button value='Limpar Tela' type={"button"} onClick={clearScreen} style={{backgroundColor: '#74b9ff' }} />
         </Container>
         {data === undefined ? "" : 
-          selectedState.value === 'todos' ? (
-            <Container>
-              <AllStates />
-            </Container>
-          ) : 
-          (<Container> 
+          (<Container>
             <Cards statesData={data} />
           </Container>)
-          
         }
-        
+        {getAll === undefined ? "" : (
+          <Container>
+            <AllStates />
+          </Container>
+        )}
       </Section>
     </>
   );

@@ -1,5 +1,4 @@
-export const state = [{value: 'todos', label: 'Todos'},
-                      {value: 'ac', label: 'Acre'},
+export const state = [{value: 'ac', label: 'Acre'},
                       {value: 'al', label: 'Alagoas'},
                       {value: 'ap', label: 'Amapá'},
                       {value: 'am', label: 'Amazonas'},

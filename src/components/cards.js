@@ -77,7 +77,7 @@ export default function Cards(data){
         <Cluster>
           <Numbers>Casos Confirmados: {data.statesData.cases}</Numbers>
           <Numbers>Casos Suspeitos: {data.statesData.suspects}</Numbers>
-          <Numbers>Negativos: {data.statesData.refuses}</Numbers>
+          <Numbers>Casos Negativos: {data.statesData.refuses}</Numbers>
           <Numbers>Óbitos: {data.statesData.deaths}</Numbers>
         </Cluster>
         <ChartCluster>
