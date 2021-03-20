@@ -1,6 +1,6 @@
-<p style="text-align: center;">Estocolmo</p>
+#Estocolmo
 
-<div style="text-align: center;">![estocolmo](https://user-images.githubusercontent.com/32197501/111856411-37465800-8909-11eb-9a1f-fbde4cd8fc95.gif)</div>
+![estocolmo](https://user-images.githubusercontent.com/32197501/111856411-37465800-8909-11eb-9a1f-fbde4cd8fc95.gif)
 
 Projeto para a atividade de Gestão de Sistemas de Informação
 
